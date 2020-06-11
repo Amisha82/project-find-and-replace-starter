@@ -27,8 +27,8 @@ replaceAllButton.addEventListener("click", function () {
     let cellElements = getCellElements(currentRowElement)
     console.log(cellElements)
 
-    for (let index = 0; index < cellElements.length; index++) {
-      let eachcell = cellElements[index]
+    for (let cellind = 0; cellind < cellElements.length; cellind++) {
+      let eachcell = cellElements[cellind]
       let cellvalue = eachcell.innerHTML
       console.log(cellvalue)
 
