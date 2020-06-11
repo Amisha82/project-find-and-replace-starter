@@ -2,40 +2,47 @@
 // the bonus objectives). Focus on the JavaScript.
 
 const findInput = document.querySelector(".find-input")
-const replaceInput = document.querySelector(".replace-input")
+let replaceInput = document.querySelector(".replace-input")
 let replaceAllButton = document.querySelector(".replace-all-button")
-//let rowvalue = document.querySelectorAll(".cell")
-//console.log(rowvalue)s
 
+
+function chkstr(cellVal, string) {
+
+
+
+  return cellVal.includes(string)
+
+
+}
 replaceAllButton.addEventListener("click", function () {
-    let userInput = findInput.value
-    console.log(userInput)
-
-    for (let index = 0; index < rowElements.length; index++) {
-        let currentRowElement = rowElements[index]
-        let cellElements = getCellElements(currentRowElement)
-        console.log(cellElements)
-
-        let cellArray = document.getElementsByClassName("row", "cell")
-
-        for (let index = 0; index < cellArray.length; index++) {
-            vartomatch = console.log(cellArray[index])
+  let userString = findInput.value
+  console.log(userString)
+  let replaceString = replaceInput.value
 
 
-            if (vartomatch.includes(userInput)) {
 
-                console.log(vartomatch.includes(userInput))
+  for (let index = 0; index < rowElements.length; index++) {
+    let currentRowElement = rowElements[index]
 
-            }
+    let cellElements = getCellElements(currentRowElement)
+    console.log(cellElements)
 
+    for (let index = 0; index < cellElements.length; index++) {
+      let eachcell = cellElements[index]
+      let cellvalue = eachcell.innerHTML
+      console.log(cellvalue)
 
-        }
+      while (cellvalue.includes(userString)) {
+        cellvalue = cellvalue.replace(userString, replaceString)
+        eachcell.innerHTML = cellvalue
+
+      }
+
 
     }
 
 
-
-
+  }
 })
 
 
@@ -54,7 +61,7 @@ let rowElements = document.querySelectorAll(".row")
 // NESTED LOOP go? Think through the user's experience: when should WHAT happen? 
 function getCellElements(currentRowElement) {
 
-    return currentRowElement.querySelectorAll(".cell")
+  return currentRowElement.querySelectorAll(".cell")
 
 }
 
